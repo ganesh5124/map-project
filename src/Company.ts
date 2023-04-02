@@ -6,8 +6,11 @@ export class Company {
 
     location!: {
         lat:number,
-        log:number
+        lng:number
     };
+    markerContent():string {
+        return `Company Name is ${this.CompanyName} and its phrase is ${this.catchPhrase}`
+    }
 
     constructor( ) {
         this.CompanyName = faker.company.name()
@@ -15,7 +18,7 @@ export class Company {
 
         this.location = {
             lat : parseFloat(faker.address.latitude()),
-            log : parseFloat(faker.address.longitude())
+            lng : parseFloat(faker.address.longitude())
         }
     }
 }

@@ -2,17 +2,19 @@ import { faker } from '@faker-js/faker';
 
 export class User {
     name!: string;
-    coordinate!: {
+    location!: {
         lat: number;
-        log: number;
+        lng: number;
     };
-
-
+    
+    markerContent() : string {
+        return `name ${this.name}`
+    }
     constructor( ) {
         this.name = faker.name.firstName('male'),
-        this.coordinate = {
+        this.location = {
             lat : parseFloat(faker.address.latitude()),
-            log : parseFloat(faker.address.longitude()),
+            lng : parseFloat(faker.address.longitude()),
         }
      }
 
